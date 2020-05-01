@@ -1,0 +1,38 @@
+int i,j,k[50];
+float res2;
+void amir(int a,int b[],int c)
+{
+    if(a>c)
+    {
+        int w=b[a-c] ;
+        print(w) ;
+    }
+    elif (a==c)
+        print (a) ;
+    else
+        amir(a,b,c-a) ;
+}
+int mohammad(int a,int t_b,int c)
+{
+    int b[t_b] ;
+    b[0]=1 ;
+    b[1]=1 ;
+    for (i=2;i<a;i=i+1)
+    {
+        b[i]=b[i-1]+b[i-2] ;
+        j=b[i] ;
+        print(j) ;
+    }
+    amir(a,b,c) ;
+    return b[c] ;
+}
+main() {
+    int a,c;
+    a=3 ;
+    c=1 ;
+    while(mohammad(a,a+3,c)<100)
+    {
+        a=a+c ;
+        c=c+1+(a*2<5 || c<7 && a-1) ;
+    }
+}
